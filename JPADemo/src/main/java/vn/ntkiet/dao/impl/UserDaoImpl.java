@@ -41,13 +41,14 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public User findByUsername(String username) {
-		try {
-			EntityManager enma = JPAConfig.getEntityManager();
-			User user = enma.find(User.class, username);
-			return user;
-		} catch (NoResultException e) {
-			return null;
-		}
+		try{
+            EntityManager enma = JPAConfig.getEntityManager();
+            TypedQuery<User> query = enma.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class);
+            query.setParameter("username", username);
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
 	}
 
 	@Override

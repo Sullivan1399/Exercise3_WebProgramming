@@ -20,9 +20,9 @@ import lombok.NoArgsConstructor;
 public class Role implements Serializable {
 
     @Id
-    @Column(name = "roleid")
-    private int roleid;
+    @Column(name = "roleId")
+    private int roleId;
 
     @Column(name = "roleName", length = 100, nullable = false)
-    private String name;
+    private String roleName;
 }

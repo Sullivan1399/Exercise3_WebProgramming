@@ -76,7 +76,7 @@ public class RegisterController extends HttpServlet {
 			req.getRequestDispatcher(REGISTER).forward(req, resp);
 			return;
 		}
-		if (service.checkExistUser(username).getUserId() != 0) {
+		if (service.checkExistUser(username) != null) {
 			alertMsg = "Tài khoản đã tồn tại!";
 			req.setAttribute("alert", alertMsg);
 			req.getRequestDispatcher(REGISTER).forward(req, resp);
