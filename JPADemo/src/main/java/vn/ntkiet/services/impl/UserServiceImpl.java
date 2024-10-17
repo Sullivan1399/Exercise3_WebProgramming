@@ -32,7 +32,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public boolean registerUser(String username, String password, String email, int roleId, String phone) {
-		if (checkExistUser(username).getUserId() != 0 || checkExistEmail(email) || checkExistPhone(phone)) {
+		if (checkExistUser(username) != null || checkExistEmail(email) || checkExistPhone(phone)) {
 			return false;
 		}
 		long millis = System.currentTimeMillis();
